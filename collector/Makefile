@@ -1,5 +1,5 @@
 venv_dir = venv
-python_executable = python
+python_executable = python3.10
 
 .PHONY: install_requirements serve test
 
@@ -15,7 +15,7 @@ install_requirements: ${venv_dir}
 serve: install_requirements
 	@echo "Run Flask application locally..."
 	export FLASK_ENV=development
-	${venv_dir}/bin/python main.py
+	${venv_dir}/bin/${python_executable} main.py
 
 test: install_requirements
-	${venv_dir}/bin/python -m pytest
+	${venv_dir}/bin/${python_executable} -m pytest

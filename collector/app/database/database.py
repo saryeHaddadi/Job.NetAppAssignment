@@ -1,0 +1,2 @@
+SparkLogEventTable = dict()
+

@@ -30,6 +30,7 @@ def print_payload(str_payload):
             messages_without_data.append('...')
             payload_without_data[MESSAGES] = messages_without_data
     print('---------------------- Payload without messages content ----------------------')
-    pprint(payload_without_data)
+    pprint(payload)
+    #pprint(payload_without_data)
     print('---------------------- Content of first message ----------------------')
     pprint(first_message)
