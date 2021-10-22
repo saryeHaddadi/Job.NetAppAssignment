@@ -1,0 +1,8 @@
+MESSAGES = 'messages'
+CONTENT = 'content'
+JOB_NAME = 'job_name'
+RUN_ID = 'run_id'
+GENERATED_AT = 'generated_at'
+MESSAGE_TYPE = 'message_type'
+TIMESTAMP = 'Timestamp'
+EVENT = 'Event'

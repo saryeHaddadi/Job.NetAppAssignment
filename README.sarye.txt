@@ -14,10 +14,17 @@ Query endpoints
 - get /job_duration/{job_name}/{run_id}
 
 
+In Python, Lists are implemeted as Arrays.
+- Time complexity for accessing Lists[i] = constante.
+
+SparkListenerApplicationStart, SparkListenerApplicationEnd
+
 
 # Next steps & Improvement ideas
 
-
+messages[]
+- .'message_type': 'spark-event'
+- .content as json, .Event = SparkListenerApplicationEnd
 
 sarye-netapp-assignment.francecentral.cloudapp.azure.com
 
