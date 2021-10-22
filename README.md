@@ -1,26 +1,20 @@
 # Home assignement, Sarye
 
+Installation: `kubectl apply -f collector/kube-manifests.yaml`
+Example: http://kube-sarye.francecentral.cloudapp.azure.com:32500
 
-**Collect Endpoint**
-- http://sarye-netapp-assignment.francecentral.cloudapp.azure.com:5000/collect
 
-## Query endpoints
-**Get Jobs**
-- URL: http://sarye-netapp-assignment.francecentral.cloudapp.azure.com:5000/job
-- Notes: Requirements didn't mandate that the results be sorted so they are not. For production, I think we should settle on a sort order (either by name, or last run start_date/end_data) depending on the case.
-
-**Get Run IDs**
-- URL: http://sarye-netapp-assignment.francecentral.cloudapp.azure.com:5000/job/<job_name>
-
-**Get Events**
-- URL: http://sarye-netapp-assignment.francecentral.cloudapp.azure.com:5000/job/<job_name>/<run_id>/events
-- Notes:
-    - The underlying data stucture (`SortedKeyLis`), performs in-order inserts, meaning, the rows are stored sorted. So we performe the sort operation at write time (= pay a little cost, this will allows us we save the sort operation at read time. At the end, we can respond in linear time with respect to the number of returned events.
-    - In Python, Lists are implemented as Arrays. The complexity of searching in the write while performing the write operation, is with respect to an array data structure, not a list.
-
-**Get Duration**
-- URL: http://sarye-netapp-assignment.francecentral.cloudapp.azure.com:5000/job/<job_name>/<run_id>/duration
-- Notes: At write time when collecting the events, we parsed the message and saved the timestamp of the start & end events (SparkListenerApplicationStart / End) at the root of the run_id, so that the duration (end-start) can be accessed in constant time by this endpoint.
+**Endpoints**
+- Collect Events: `/collect`
+- Get Jobs: `/job`
+    - Notes: Requirements didn't mandate that the results be sorted so they are not. For production, I think we should settle on a sort order (either by name, or last run start_date/end_data) depending on the case.
+- Get Run IDs: `/job/<job_name>`
+- Get Events: `/job/<job_name>/<run_id>/events`
+    - Notes:
+        - The underlying data stucture (`SortedKeyLis`), performs in-order inserts, meaning, the rows are stored sorted. So we performe the sort operation at write time (= pay a little cost, this will allows us we save the sort operation at read time. At the end, we can respond in linear time with respect to the number of returned events.
+        - In Python, Lists are implemented as Arrays. The complexity of searching in the write while performing the write operation, is with respect to an array data structure, not a list.
+- Get Duration: `/job/<job_name>/<run_id>/duration`
+    - Notes: At write time when collecting the events, we parsed the message and saved the timestamp of the start & end events (SparkListenerApplicationStart / End) at the root of the run_id, so that the duration (end-start) can be accessed in constant time by this endpoint.
 
 
 # Next steps
