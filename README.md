@@ -1,11 +1,11 @@
-# Home assignement, Sarye
+# I
 
 Installation: `kubectl apply -f collector/kube-manifests.yaml`
 
 Example: http://kube-sarye.francecentral.cloudapp.azure.com:32500
 
 
-**Endpoints**
+## Endpoints
 - Collect Events: `/collect`
 - Get Jobs: `/job`
     - Notes: Requirements didn't mandate that the results be sorted so they are not. For production, I think we should settle on a sort order (either by name, or last run start_date/end_data) depending on the case.
