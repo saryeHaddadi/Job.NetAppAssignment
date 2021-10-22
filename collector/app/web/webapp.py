@@ -1,9 +1,7 @@
 from flask import Flask, request, make_response
 
-
 from app.services.helpers.compression import gzip_http_request_middleware
 from app.services.SparkJobService import SparkJobService
-
 
 
 def create_app():
