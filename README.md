@@ -21,11 +21,11 @@ Example: http://kube-sarye.francecentral.cloudapp.azure.com:32500
 ## Next steps
 All endpoints work and satisfy the requirements, we can thus focus on improving the backend in particular, then polishing the client-facing APIs.
 1. Persisting the data on disk (endpoint: /collect).
-    - Using a relational DB and storing the data in there.
+    - Using a relational DB / NoSQL and storing the data in there. The choice is to be determined with the current ecosystem in the company, and the use case.
     - Make a research on the Repository pattern, an implement it. In particular, in the present version, the logic to access the physical data is mixed with the business logic.
 2. Read on the best practices on how to handle the HTTP responses when a key do not exists, and discuss this matter with the Lead Dev (returning an empty result, or an HTTP error code).
-3. Apply a schema on the controllers, for instance by migrating everything to FastAPI/Pydanic, or making a reseach on how to deal with this in Flask.
-4. Read on pytest & fixtures (pytest's way to implement unit testing). then making one testing class for each method to test. This testing class will have as much test methods as unit tests that we have identified for the method to test.
+3. Apply a schema on the controllers input/output, for instance by migrating everything to FastAPI/Pydanic, or making a reseach on how to deal with this in Flask.
+4. Read on pytest & fixtures (pytest's way to implement unit testing). then make one testing class for each method to test. This testing class will have as much test methods as unit tests that we have identified for the method to test.
 5. Document the API with Swagger/OpenAPI
 6. Extract the host & listening ports out of the code, so they can be treated as configurations.
 7. Document all functions, some are not (especially the app/services)
