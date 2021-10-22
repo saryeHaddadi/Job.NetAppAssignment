@@ -2,7 +2,7 @@
 
 Installation: `kubectl apply -f collector/kube-manifests.yaml`
 
-Example: http://kube-sarye.francecentral.cloudapp.azure.com:32500
+Example: http://kube-sarye.francecentral.cloudapp.azure.com:32500/health
 
 
 ## Endpoints
