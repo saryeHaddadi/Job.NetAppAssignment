@@ -8,7 +8,8 @@ spec: {}
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-service
+  name: spark-assignement-sarye-service
+  namespace: spark-assignement-sarye
 spec:
   selector:
     app: spark-assignement-sarye
