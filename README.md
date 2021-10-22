@@ -1,6 +1,7 @@
 # Home assignement, Sarye
 
 Installation: `kubectl apply -f collector/kube-manifests.yaml`
+
 Example: http://kube-sarye.francecentral.cloudapp.azure.com:32500
 
 
