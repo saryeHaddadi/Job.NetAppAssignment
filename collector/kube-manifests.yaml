@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: null
+  name: spark-assignement-sarye
+spec: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    app: spark-assignement-sarye
+  type: NodePort
+  ports:
+    - port: 5000
+      targetPort: 5000
+      nodePort: 32500
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spark-assignement-sarye
+  labels:
+    app: spark-assignement-sarye
+  namespace: spark-assignement-sarye
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spark-assignement-sarye
+  template:
+    metadata:
+      labels:
+        app: spark-assignement-sarye
+    spec:
+      containers:
+      - name: spark-assignement-sarye
+        image: sarye/apps:spark-apis
+        ports:
+        - containerPort: 5000

@@ -7,7 +7,7 @@ import app.services.helpers.payload_keys as keys
 
 import app.services.helpers.payload_keys as keys
 
-class SparkJobAppService:
+class SparkJobService:
     def __init__(self):
         pass
 
@@ -55,6 +55,8 @@ class SparkJobAppService:
         elif SparkJobTable.get(job_name).get(run_id) is None:
             return []
         else:
+            # Requirement, results should be sorted by time ('generated_at')
+            # The underlying data structure take care of this.
             return list(SparkJobTable.get(job_name).get(run_id).messages.irange())
 
     def get_duration(self, job_name, run_id):

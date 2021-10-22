@@ -2,14 +2,13 @@ from flask import Flask, request, make_response
 
 
 from app.services.helpers.compression import gzip_http_request_middleware
-from app.services.helpers.logging import print_payload
-from app.services.SparkJobAppService import SparkJobAppService
+from app.services.SparkJobService import SparkJobService
 
 
 
 def create_app():
     app = Flask(__name__)
-    spak_service = SparkJobAppService()
+    spak_service = SparkJobService()
 
     # Enable the app to support gzip encoded requests
     app.before_request(gzip_http_request_middleware)
@@ -50,7 +49,7 @@ def create_app():
     @app.route('/job/<job_name>/<run_id>/events', methods=['GET'])
     def get_events(job_name, run_id):
         """Endpoint that returns the list of all events associated to a particular run.
-        Events ('message') can either Events, or HearthBeats.
+        Events ('message') can either be Events, or HearthBeats.
         This endpoint could have been named get_messages.
 
         Args:
@@ -64,7 +63,7 @@ def create_app():
 
     @app.route('/job/<job_name>/<run_id>/duration', methods=['GET'])
     def get_duration(job_name, run_id):
-        """Return the duration, in ms, of a particular run.
+        """Return the run duration, in ms.
 
         Args:
             job_name (str): The job's name

@@ -1,4 +1,4 @@
 
-# Reseprent our database table: SparkJob
+# Reseprents a database table: SparkJob
 SparkJobTable = dict()
 
