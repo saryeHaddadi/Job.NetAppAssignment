@@ -63,11 +63,8 @@ class SparkJobAppService:
         elif SparkJobTable.get(job_name).get(run_id) is None:
             return None
         else:
-            print('SARYE')
             start_date = (SparkJobTable[job_name])[run_id].start_date
             end_date = (SparkJobTable[job_name])[run_id].end_date
-            print(start_date)
-            print(end_date)
             if start_date is None or end_date is None:
                 return None
             else:
