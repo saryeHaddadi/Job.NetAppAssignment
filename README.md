@@ -24,9 +24,10 @@ All endpoints work and satisfy the requirements, we can thus focus on improving 
     - Using a relational DB and storing the data in there.
     - Make a research on the Repository pattern, an implement it. In particular, in the present version, the logic to access the physical data is mixed with the business logic.
 2. Read on the best practices on how to handle the HTTP responses when a key do not exists, and discuss this matter with the Lead Dev (returning an empty result, or an HTTP error code).
-3. Read on pytest & fixtures (pytest's way to implement unit testing). then making one testing class for each method to test. This testing class will have as much test methods as unit tests that we have identified for the method to test.
-4. Document the API with Swagger/OpenAPI
-5. Extract the host & listening ports out of the code, so they can be treated as configurations.
+3. Apply a schema on the controllers, for instance by migrating everything to FastAPI/Pydanic, or making a reseach on how to deal with this in Flask.
+4. Read on pytest & fixtures (pytest's way to implement unit testing). then making one testing class for each method to test. This testing class will have as much test methods as unit tests that we have identified for the method to test.
+5. Document the API with Swagger/OpenAPI
+6. Extract the host & listening ports out of the code, so they can be treated as configurations.
 
 ## Improvement ideas
 Splitting the app into 2 different apps. One for collecting the data, and one for serving it.
