@@ -6,7 +6,8 @@ distribution = spark-${spark_version}-bin-hadoop2.7
 # For example, change collector_url to point to your deployed service:
 # make collector_url=http://url.of.my.service.com/ run_one_app
 job_name = spark-pi
-collector_url = http://localhost:5000/collect
+collector_url = http://kube-sarye.francecentral.cloudapp.azure.com:32500/collect
+#collector_url = http://localhost:5000/collect
 n_partitions = 100
 
 ${distribution}.tgz:
