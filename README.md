@@ -1,4 +1,4 @@
-# I
+# Home assignement, Sarye
 
 Installation: `kubectl apply -f collector/kube-manifests.yaml`
 
@@ -18,7 +18,7 @@ Example: http://kube-sarye.francecentral.cloudapp.azure.com:32500
     - Notes: At write time when collecting the events, we parsed the message and saved the timestamp of the start & end events (SparkListenerApplicationStart / End) at the root of the run_id, so that the duration (end-start) can be accessed in constant time by this endpoint.
 
 
-# Next steps
+## Next steps
 All endpoints work and satisfy the requirements, we can thus focus on improving the backend in particular, then polishing the client-facing APIs.
 1. Persisting the data on disk (endpoint: /collect).
     - Using a relational DB and storing the data in there.
@@ -28,7 +28,7 @@ All endpoints work and satisfy the requirements, we can thus focus on improving 
 4. Document the API with Swagger/OpenAPI
 5. Extract the host & listening ports out of the code, so they can be treated as configurations.
 
-# Improvement ideas
+## Improvement ideas
 Splitting the app into 2 different apps. One for collecting the data, and one for serving it.
 1. Collecting the data
     - If we have quite a volumetry, and we have other use cases other than sinking the data on a data store, I would plug in collect API to message brocker, this would enable the fan-out of the consummation (one of them being sinking the data to a data store). In would put in front of the message broker a reverse-proxy to load balance the incomming requests, and to not expose the outside world directly to the message broker.
